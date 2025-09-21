@@ -6,50 +6,35 @@ import monstres.EspeceMonstre
 import org.example.dresseur.Entraineur
 import org.example.monstres.IndividuMonstre
 
-// Instanciation globale des objets
-var joueur = Entraineur(
-    1, "Sacha",
-    argents = TODO(),
-    equipeMonstre = TODO(),
-    boiteMonstre = TODO(),
-    sacAItems = TODO()
-)
-var rival = Entraineur(
-    2, "Regis",
-    argents = TODO(),
-    equipeMonstre = TODO(),
-    boiteMonstre = TODO(),
-    sacAItems = TODO()
-)
-
-var especeSpringLeaf = EspeceMonstre(
-    1, "SpringLeaf", "Plante",
-    45, 40, 60, 50, 50, 55,
-    1.1, 1.0, 1.2, 1.1, 1.0, 1.2,
-    description = "Petit monstre plante agile",
-    particularites = "Rapide mais fragile",
-    caracteres = "Joyeux et curieux"
-)
-
-var especeFlamkip = EspeceMonstre(
-    2, "Flamkip", "Feu",
-    60, 45, 55, 65, 50, 50,
-    1.2, 1.0, 1.1, 1.3, 1.0, 1.1,
-    description = "Lézard de feu courageux",
-    particularites = "Attaque puissante",
-    caracteres = "Têtu et brave"
-)
-
-var especeAquamy = EspeceMonstre(
-    3, "Aquamy", "Eau",
-    50, 60, 55, 50, 65, 60,
-    1.0, 1.2, 1.1, 1.0, 1.3, 1.1,
-    description = "Créature aquatique calme",
-    particularites = "Très bonne défense",
-    caracteres = "Calme et loyal"
-)
-
 fun main() {
+    // Définir les espèces de monstres
+    val especeSpringLeaf = EspeceMonstre(
+        1, "SpringLeaf", "Plante",
+        45, 40, 60, 50, 50, 55,
+        1.1, 1.0, 1.2, 1.1, 1.0, 1.2,
+        description = "Petit monstre plante agile",
+        particularites = "Rapide mais fragile",
+        caracteres = "Joyeux et curieux"
+    )
+
+    val especeFlamkip = EspeceMonstre(
+        2, "Flamkip", "Feu",
+        60, 45, 55, 65, 50, 50,
+        1.2, 1.0, 1.1, 1.3, 1.0, 1.1,
+        description = "Lézard de feu courageux",
+        particularites = "Attaque puissante",
+        caracteres = "Têtu et brave"
+    )
+
+    val especeAquamy = EspeceMonstre(
+        3, "Aquamy", "Eau",
+        50, 60, 55, 50, 65, 60,
+        1.0, 1.2, 1.1, 1.0, 1.3, 1.1,
+        description = "Créature aquatique calme",
+        particularites = "Très bonne défense",
+        caracteres = "Calme et loyal"
+    )
+
     // Création de 3 individus
     val monstre1 = IndividuMonstre(1, "Springleaf", especeSpringLeaf, null, 1500.0)
     val monstre2 = IndividuMonstre(2, "Flamkip", especeFlamkip, null, 1500.0)
@@ -82,18 +67,18 @@ fun main() {
     zone1.zoneSuivante = zone2
     zone2.zonePrecedente = zone1
 
+    // Items
+    val kube1 = MonsterKube(1, "MonsterKube", "Un cube qui capture les monstres", 30.0)
+
     // Joueur avec équipe et items
     val joueur = Entraineur(
-        1, "Maxou",
-        argents = TODO(),
-        equipeMonstre = TODO(),
-        boiteMonstre = TODO(),
-        sacAItems = TODO()
+        id = 1,
+        nom = "Regis",
+        argents = 1000,
+        equipeMonstre = mutableListOf(monstre1),
+        boiteMonstre = mutableListOf(monstre2, monstre3),
+        sacAItems = mutableListOf(kube1)
     )
-    joueur.equipeMonstre.add(monstre1)
-
-    val kube1 = MonsterKube(1, "MonsterKube", "Un cube qui capture les monstres", 30.0)
-    joueur.sacAItems.add(kube1)
 
     // Vérification des monstres
     println("=== Vérification initiale ===")
@@ -107,6 +92,7 @@ fun main() {
     println("${monstre1.nom} est maintenant niveau ${monstre1.niveau}")
 }
 
+// Fonction utilitaire pour changer la couleur d'un message (si supporté par le terminal)
 fun changeCouleur(message: String, couleur: String = ""): String {
     val reset = "\u001B[0m"
     val codeCouleur = when (couleur.lowercase()) {
@@ -121,6 +107,7 @@ fun changeCouleur(message: String, couleur: String = ""): String {
     }
     return "$codeCouleur$message$reset"
 }
+
 
 
 
