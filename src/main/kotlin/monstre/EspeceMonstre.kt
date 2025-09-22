@@ -30,24 +30,24 @@ import java.io.File
  * @property caracteres Traits de caractère typiques de l’espèce.
  */
 class EspeceMonstre(
-    var id: Int,
-    var nom: String,
-    var type: String,
-    val baseAttaque: Int,
-    val baseDefense: Int,
-    val baseVitesse: Int,
-    val baseAttaqueSpe: Int,
-    val baseDefenseSpe: Int,
-    val basePv: Int,
-    val modAttaque: Double,
-    val modDefense: Double,
-    val modVitesse: Double,
-    val modAttaqueSpe: Double,
-    val modDefenseSpe: Double,
-    val modPv: Double,
-    val description: String = "",
-    val particularites: String = "",
-    val caracteres: String = ""
+    /*id de l'Espèce */var id: Int,
+    /*nom de l' */var nom: String,
+    /* */var type: String,
+    /* */ val baseAttaque: Int,
+    /* */val baseDefense: Int,
+    /* */val baseVitesse: Int,
+    /* */val baseAttaqueSpe: Int,
+    /* */val baseDefenseSpe: Int,
+    /* */val basePv: Int,
+    /* */val modAttaque: Double,
+    /* */val modDefense: Double,
+    /* */val modVitesse: Double,
+    /* */val modAttaqueSpe: Double,
+    /* */val modDefenseSpe: Double,
+    /* */
+    /* */val description: String = "",
+    /* */val particularites: String = "",
+    /* */val caracteres: String = ""
 ) {
     /**
      * Affiche la représentation artistique ASCII du monstre.
