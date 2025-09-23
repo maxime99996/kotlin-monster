@@ -1,6 +1,6 @@
 package item
 
-import org.example.monstres.IndividuMonstre
+import org.example.monstre.IndividuMonstre
 
 /**
  * Interface définissant un objet utilisable en combat.

@@ -1,6 +1,6 @@
 package monde
 
-import monstres.EspeceMonstre
+import monstre.EspeceMonstre
 
 /**
  * Représente une zone du monde (route, caverne, mer, ville…).

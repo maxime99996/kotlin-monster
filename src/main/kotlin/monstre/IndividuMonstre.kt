@@ -1,5 +1,5 @@
-package org.example.monstres
-import monstres.EspeceMonstre
+package org.example.monstre
+import monstre.EspeceMonstre
 import org.example.dresseur.Entraineur
 import kotlin.math.pow
 
@@ -28,14 +28,12 @@ class IndividuMonstre(
     // --- Propriétés dans le corps de la classe ---
 
     var niveau: Int = 1
-
-    var attaque: Int = espece.baseAttaque + Random.nextInt(-2, 3)
-    var defense: Int = espece.baseDefense + Random.nextInt(-2, 3)
-    var vitesse: Int = espece.baseVitesse + Random.nextInt(-2, 3)
-    var attaqueSpe: Int = espece.baseAttaqueSpe + Random.nextInt(-2, 3)
-    var defenseSpe: Int = espece.baseDefenseSpe + Random.nextInt(-2, 3)
+    var attaque: Int = espece.baseAttaque + Random.nextInt(-2, 2)
+    var defense: Int = espece.baseDefense + Random.nextInt(-2, 2)
+    var vitesse: Int = espece.baseVitesse + Random.nextInt(-2, 2)
+    var attaqueSpe: Int = espece.baseAttaqueSpe + Random.nextInt(-2, 2)
+    var defenseSpe: Int = espece.baseDefenseSpe + Random.nextInt(-2, 2)
     var pvMax: Int = espece.basePv + Random.nextInt(-5, 6)
-
     var potentiel: Double = Random.nextDouble(0.5, 2.0)
 
     /**
@@ -51,6 +49,7 @@ class IndividuMonstre(
                 else -> nouveauPv
             }
         }
+    var estNiveau: Boolean = true
 
     /**
      * Expérience actuelle.
@@ -60,9 +59,19 @@ class IndividuMonstre(
         get() = field
         set(nouvelleExp) {
             field = nouvelleExp
-            while (field >= palierExp(niveau + 1)) {
-                levelUp()
+            if (niveau == 1){
+                var estNiveau1 = true
             }
+            else{
+                var estNiveau1= false
+            }
+            while (field >= palierExp(niveau)) {
+                levelUp()
+                if (estNiveau == false){
+                    println("le monstre $nom est maintenant niveau $niveau! ")
+                }
+            }
+
         }
 
     // --- Constructeur secondaire ---
@@ -89,11 +98,11 @@ class IndividuMonstre(
     fun levelUp() {
         niveau++
 
-        attaque += (espece.modAttaque * potentiel).toInt() + Random.nextInt(-2, 3)
-        defense += (espece.modDefense * potentiel).toInt() + Random.nextInt(-2, 3)
-        vitesse += (espece.modVitesse * potentiel).toInt() + Random.nextInt(-2, 3)
-        attaqueSpe += (espece.modAttaqueSpe * potentiel).toInt() + Random.nextInt(-2, 3)
-        defenseSpe += (espece.modDefenseSpe * potentiel).toInt() + Random.nextInt(-2, 3)
+        attaque += (espece.modAttaque * potentiel).toInt() + Random.nextInt(-2, 2)
+        defense += (espece.modDefense * potentiel).toInt() + Random.nextInt(-2, 2)
+        vitesse += (espece.modVitesse * potentiel).toInt() + Random.nextInt(-2, 2)
+        attaqueSpe += (espece.modAttaqueSpe * potentiel).toInt() + Random.nextInt(-2, 2)
+        defenseSpe += (espece.modDefenseSpe * potentiel).toInt() + Random.nextInt(-2, 2)
 
         val ancienPvMax = pvMax
         pvMax += (espece.modPv * potentiel).toInt() + Random.nextInt(-5, 6)

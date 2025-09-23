@@ -1,5 +1,5 @@
 package item
-import org.example.monstres.IndividuMonstre
+import org.example.monstre.IndividuMonstre
 import kotlin.random.Random
 
 /**

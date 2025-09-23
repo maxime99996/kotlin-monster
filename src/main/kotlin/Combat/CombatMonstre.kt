@@ -1,7 +1,7 @@
 package combat
 
 import org.example.dresseur.Entraineur
-import org.example.monstres.IndividuMonstre
+import org.example.monstre.IndividuMonstre
 
 /**
  * Représente un combat entre un monstre du joueur et un monstre sauvage.

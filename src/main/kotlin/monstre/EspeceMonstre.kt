@@ -1,4 +1,4 @@
-package monstres
+package monstre
 
 import java.io.File
 
@@ -43,8 +43,8 @@ class EspeceMonstre(
     /* */val modDefense: Double,
     /* */val modVitesse: Double,
     /* */val modAttaqueSpe: Double,
+    /* */val modPv: Int,
     /* */val modDefenseSpe: Double,
-    /* */
     /* */val description: String = "",
     /* */val particularites: String = "",
     /* */val caracteres: String = ""
