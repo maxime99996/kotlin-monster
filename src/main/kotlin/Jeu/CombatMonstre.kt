@@ -1,4 +1,4 @@
-package combat
+package Jeu
 
 import org.example.dresseur.Entraineur
 import org.example.monstre.IndividuMonstre

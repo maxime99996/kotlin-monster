@@ -1,6 +1,6 @@
 package org.example
 
-import item.MonsterKube
+import MonsterKube
 import monde.Zone
 import monstre.EspeceMonstre
 import org.example.dresseur.Entraineur
@@ -111,27 +111,7 @@ fun main() {
     // Items
     val kube1 = MonsterKube(1, "MonsterKube", "Un cube qui capture les monstres", 30.0)
 
-    // Joueur avec équipe et items
-    val joueur = Entraineur(
-        id = 1,
-        nom = "Sacha",
-        argents = 1000,
-        equipeMonstre = mutableListOf(monstre1),
-        boiteMonstre = mutableListOf(monstre2, monstre3),
-        sacAItems = mutableListOf(kube1)
-    )
 
-
-    // Vérification des monstres
-    println("=== Vérification initiale ===")
-    println("${monstre1.nom} → niveau ${monstre1.niveau}, attaque ${monstre1.attaque}, pv ${monstre1.pv}/${monstre1.pvMax}")
-    println("${monstre2.nom} → niveau ${monstre2.niveau}, attaque ${monstre2.attaque}, pv ${monstre2.pv}/${monstre2.pvMax}")
-    println("${monstre3.nom} → niveau ${monstre3.niveau}, attaque ${monstre3.attaque}, pv ${monstre3.pv}/${monstre3.pvMax}")
-
-    // Test XP
-    println("\n=== Gain d'expérience ===")
-    monstre1.exp += 1000.0
-    println("${monstre1.nom} est maintenant niveau ${monstre1.niveau}")
 }
 
 

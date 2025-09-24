@@ -9,6 +9,7 @@ import org.example.monstre.IndividuMonstre
  * implémentation de [utiliser].
  */
 interface Utilisable {
+
     /**
      * Applique l’effet de l’objet sur un [IndividuMonstre].
      *

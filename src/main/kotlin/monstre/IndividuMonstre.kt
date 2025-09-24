@@ -26,7 +26,7 @@ class IndividuMonstre(
     expInit: Double
 ) {
     // --- Propriétés dans le corps de la classe ---
-
+    
     var niveau: Int = 1
     var attaque: Int = espece.baseAttaque + Random.nextInt(-2, 2)
     var defense: Int = espece.baseDefense + Random.nextInt(-2, 2)
@@ -57,21 +57,20 @@ class IndividuMonstre(
      */
     var exp: Double = 0.0
         get() = field
-        set(nouvelleExp) {
-            field = nouvelleExp
-            if (niveau == 1){
-                var estNiveau1 = true
+        set(value) {
+            field = value
+            var estNiveau1 = false
+            if (niveau == 1) {
+                estNiveau1 = true
             }
-            else{
-                var estNiveau1= false
-            }
-            while (field >= palierExp(niveau)) {
+            do {
                 levelUp()
-                if (estNiveau == false){
-                    println("le monstre $nom est maintenant niveau $niveau! ")
-                }
-            }
+                if (estNiveau1 == false) {
+                    println("Le monstre $nom est maintenant niveau $niveau")
+                    break
 
+                }
+            } while (field >= palierExp(niveau))
         }
 
     // --- Constructeur secondaire ---
@@ -97,7 +96,6 @@ class IndividuMonstre(
      */
     fun levelUp() {
         niveau++
-
         attaque += (espece.modAttaque * potentiel).toInt() + Random.nextInt(-2, 2)
         defense += (espece.modDefense * potentiel).toInt() + Random.nextInt(-2, 2)
         vitesse += (espece.modVitesse * potentiel).toInt() + Random.nextInt(-2, 2)
