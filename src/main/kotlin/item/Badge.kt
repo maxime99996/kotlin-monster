@@ -5,7 +5,7 @@ import org.example.dresseur.Entraineur
 /**
  * Représente un badge, obtenu en battant un champion.
  *
- * Hérite de la classe [Item].
+ * Hérite de la classe [item].
  *
  * @property champion L’entraîneur à battre pour obtenir ce badge.
  */

@@ -1,7 +1,7 @@
 package org.example.dresseur
 
 import item.Item
-import org.example.monstre.IndividuMonstre
+import org.example.monstre.individuMonstre
 
 class Entraineur(
     var id: Int,
@@ -10,8 +10,8 @@ class Entraineur(
     //TODO equipeMonstre
     //TODO boiteMonstre
     //TODO sacAKube
-    var equipeMonstre: MutableList<IndividuMonstre> = mutableListOf(),
-    var boiteMonstre: MutableList<IndividuMonstre> = mutableListOf(),
+    var equipeMonstre: MutableList<individuMonstre> = mutableListOf(),
+    var boiteMonstre: MutableList<individuMonstre> = mutableListOf(),
     var sacAItems: MutableList<Item> = mutableListOf(),
 
     ) {

@@ -1,7 +1,7 @@
-package Jeu
+package jeu
 
 import org.example.dresseur.Entraineur
-import org.example.monstre.IndividuMonstre
+import org.example.monstre.individuMonstre
 
 /**
  * Représente un combat entre un monstre du joueur et un monstre sauvage.
@@ -11,8 +11,8 @@ import org.example.monstre.IndividuMonstre
  */
 class CombatMonstre(
     var joueur: Entraineur,
-    var monstreJoueur: IndividuMonstre,
-    var monstreSauvage: IndividuMonstre
+    var monstreJoueur: individuMonstre,
+    var monstreSauvage: individuMonstre
 ) {
     var round: Int = 1
 
@@ -130,7 +130,7 @@ class CombatMonstre(
      */
     fun lanceCombat() {
         while (!gameOver() && !joueurGagne()) {
-            jouer()
+            this.jouer()
             println("======== Fin du Round : $round ========")
             round++
         }

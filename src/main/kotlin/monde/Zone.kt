@@ -1,6 +1,7 @@
 package monde
 
 import monstre.EspeceMonstre
+import org.example.monstre.individuMonstre
 
 /**
  * Représente une zone du monde (route, caverne, mer, ville…).
@@ -23,6 +24,10 @@ class Zone(
     var zoneSuivante: Zone? = null,
     var zonePrecedente: Zone? = null
 ) {
+    fun genereMonstre(){
+        var zonemonstre = (this.)
+
+    }
     // TODO: Implémenter plus tard la méthode genereMonstre()
     // TODO: Implémenter plus tard la méthode rencontreMonstre()
 }

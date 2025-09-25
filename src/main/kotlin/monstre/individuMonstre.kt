@@ -18,7 +18,7 @@ import kotlin.random.Random
  * @property entraineur Entraîneur auquel appartient le monstre, ou `null` si sauvage.
  * @param expInit Expérience initiale (non stockée directement, mais appliquée au setter de exp).
  */
-class IndividuMonstre(
+class individuMonstre(
     var id: Int,
     var nom: String,
     var espece: EspeceMonstre,
@@ -57,21 +57,20 @@ class IndividuMonstre(
      */
     var exp: Double = 0.0
         get() = field
-        set(nouvelleExp) {
-            field = nouvelleExp
-            if (niveau == 1){
-                var estNiveau1 = true
+        set(value) {
+            field = value
+            var estNiveau1 = false
+            if (niveau == 1) {
+                estNiveau1 = true
             }
-            else{
-                var estNiveau1= false
-            }
-            while (field >= palierExp(niveau)) {
+            do {
                 levelUp()
-                if (estNiveau == false){
-                    println("le monstre $nom est maintenant niveau $niveau! ")
-                }
-            }
+                if (estNiveau1 == false) {
+                    println("Le monstre $nom est maintenant niveau $niveau")
+                    break
 
+                }
+            } while (field >= palierExp(niveau))
         }
 
     // --- Constructeur secondaire ---
@@ -97,7 +96,6 @@ class IndividuMonstre(
      */
     fun levelUp() {
         niveau++
-
         attaque += (espece.modAttaque * potentiel).toInt() + Random.nextInt(-2, 2)
         defense += (espece.modDefense * potentiel).toInt() + Random.nextInt(-2, 2)
         vitesse += (espece.modVitesse * potentiel).toInt() + Random.nextInt(-2, 2)
@@ -114,20 +112,19 @@ class IndividuMonstre(
     }
 
     /**
-     * Attaque un autre [IndividuMonstre] et inflige des dégâts.
+     * Attaque un autre [individuMonstre] et inflige des dégâts.
      *
      * Les dégâts sont calculés simplement :
      * `dégâts = attaque - (défense / 2)` (minimum 1 dégât).
      *
      * @param cible Monstre cible de l'attaque.
      */
-    fun attaquer(cible: IndividuMonstre) {
+    fun attaquer(cible: individuMonstre) {
         val degats = (this.attaque - (cible.defense / 2)).coerceAtLeast(1)
         cible.pv -= degats
         println("${this.nom} attaque ${cible.nom} et inflige $degats dégâts !")
         println("${cible.nom} a maintenant ${cible.pv}/${cible.pvMax} PV.")
     }
-
     /**
      * Demande au joueur de renommer le monstre.
      * Si l'utilisateur entre un texte vide, le nom n'est pas modifié.

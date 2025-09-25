@@ -1,10 +1,9 @@
 package org.example
-
-import item.MonsterKube
 import monde.Zone
 import monstre.EspeceMonstre
 import org.example.dresseur.Entraineur
-import org.example.monstre.IndividuMonstre
+import org.example.item.MonsterKube
+import org.example.monstre.individuMonstre
 
 // Fonction utilitaire pour changer la couleur d'un message (si supporté par le terminal)
 fun changeCouleur(message: String, couleur: String = ""): String {
@@ -92,15 +91,17 @@ val route2 = Zone(
     especesMonstres = mutableListOf(especeAquamy, especeBugsyface)
 )
 
+var joueur = Entraineur(1,"Sacha",100)
+
 
 fun main() {
     // Création de 6 individus
-    val monstre1 = IndividuMonstre(1, "Springleaf", especeSpringLeaf, null, 1500.0)
-    val monstre2 = IndividuMonstre(4, "Flamkip", especeFlamkip, null, 1500.0)
-    val monstre3 = IndividuMonstre(7, "Aquamy", especeAquamy, null, 1500.0)
-    val monstre4 = IndividuMonstre(8, "Laoumi", especeLaoumi, null, 1500.0)
-    val monstre5 = IndividuMonstre(10, "Bugsyface", especeBugsyface, null, 1500.0)
-    val monstre6 = IndividuMonstre(13, "Galum", especeGalum, null, 1500.0)
+    val monstre1 = individuMonstre(1, "Springleaf", especeSpringLeaf, null, 1500.0)
+    val monstre2 = individuMonstre(4, "Flamkip", especeFlamkip, null, 1500.0)
+    val monstre3 = individuMonstre(7, "Aquamy", especeAquamy, null, 1500.0)
+    val monstre4 = individuMonstre(8, "Laoumi", especeLaoumi, null, 1500.0)
+    val monstre5 = individuMonstre(10, "Bugsyface", especeBugsyface, null, 1500.0)
+    val monstre6 = individuMonstre(13, "Galum", especeGalum, null, 1500.0)
 
 
 
@@ -111,27 +112,7 @@ fun main() {
     // Items
     val kube1 = MonsterKube(1, "MonsterKube", "Un cube qui capture les monstres", 30.0)
 
-    // Joueur avec équipe et items
-    val joueur = Entraineur(
-        id = 1,
-        nom = "Sacha",
-        argents = 1000,
-        equipeMonstre = mutableListOf(monstre1),
-        boiteMonstre = mutableListOf(monstre2, monstre3),
-        sacAItems = mutableListOf(kube1)
-    )
 
-
-    // Vérification des monstres
-    println("=== Vérification initiale ===")
-    println("${monstre1.nom} → niveau ${monstre1.niveau}, attaque ${monstre1.attaque}, pv ${monstre1.pv}/${monstre1.pvMax}")
-    println("${monstre2.nom} → niveau ${monstre2.niveau}, attaque ${monstre2.attaque}, pv ${monstre2.pv}/${monstre2.pvMax}")
-    println("${monstre3.nom} → niveau ${monstre3.niveau}, attaque ${monstre3.attaque}, pv ${monstre3.pv}/${monstre3.pvMax}")
-
-    // Test XP
-    println("\n=== Gain d'expérience ===")
-    monstre1.exp += 1000.0
-    println("${monstre1.nom} est maintenant niveau ${monstre1.niveau}")
 }
 
 

@@ -1,6 +1,6 @@
 package item
 
-import org.example.monstre.IndividuMonstre
+import org.example.monstre.individuMonstre
 
 /**
  * Interface définissant un objet utilisable en combat.
@@ -10,10 +10,10 @@ import org.example.monstre.IndividuMonstre
  */
 interface Utilisable {
     /**
-     * Applique l’effet de l’objet sur un [IndividuMonstre].
+     * Applique l’effet de l’objet sur un [individuMonstre].
      *
      * @param cible Le monstre sur lequel l’objet est utilisé.
      * @return `true` si l’action a eu un effet, sinon `false`.
      */
-    fun utiliser(cible: IndividuMonstre): Boolean
+    fun utiliser(cible: individuMonstre): Boolean
 }
