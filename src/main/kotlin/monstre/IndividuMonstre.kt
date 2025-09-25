@@ -127,6 +127,7 @@ class IndividuMonstre(
         println("${this.nom} attaque ${cible.nom} et inflige $degats dégâts !")
         println("${cible.nom} a maintenant ${cible.pv}/${cible.pvMax} PV.")
     }
+
     /**
      * Demande au joueur de renommer le monstre.
      * Si l'utilisateur entre un texte vide, le nom n'est pas modifié.
