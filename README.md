@@ -1,8 +1,8 @@
 Rapport de Projet – KotlinMonsters
 
-Maxime GALLI
-26/10/25
-SIO 22
+Nom :Maxime GALLI
+Date: 26/10/25
+Classe: SIO 22
 
 1. Introduction
 
@@ -578,5 +578,6 @@ Test de l’enchaînement complet : saisie du nom, choix du starter, boucle de j
 8. Conclusion
 
 Ce projet met en lumière une maîtrise solide de la programmation orientée objet en Kotlin. L’architecture est réfléchie, modulaire et prête à être étendue. Le code est clair, bien structuré, et montre une application concrète de concepts comme l’héritage, le polymorphisme, l’encapsulation ou la composition. Les systèmes de jeu sont bien définis (progression, combat, capture, éléments) et fonctionnels. Enfin, les tests montrent une rigueur appréciable dans la validation des fonctionnalités. 
+
 
 
